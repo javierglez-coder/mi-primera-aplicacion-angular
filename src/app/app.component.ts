@@ -6,18 +6,13 @@ import { RouterOutlet } from '@angular/router';
   imports: [],
   //templateUrl: './app.component.html',
   template:`
-  <h1>{{ mensaje }}</h1>
-  <hr>
-  <h2>{{ mostrarMensaje() }}</h2>
-  <hr>
-  <h3>{{ 1 + 1  }}</h3>
-  <hr>
-  <h4>{{ mostrarResultado ? 'Este es el resultado' : 'XD' }}</h4>
-  <hr>
-  <input [value]="mensaje">
-  <h1 [textContent]="mensaje"></h1>
-  `,
-  //styleUrl: './app.component.css'
+    <h1>{{title}}</h1>
+    <input [value]="nombre" type="text">
+    <input [type]="edad < 18 ? 'text' : 'number'">
+    <button [disabled]="estaDeshabilitado">Enviar</button>
+    <img [src]="imagenUrl" alt="Imagen aleatoria">
+    <div [style.color]="colorFavorito">Texto con color favorito</div>
+  `,  
   styles:[
     `
     :host{
@@ -30,6 +25,20 @@ export class AppComponent {
   title = 'mi-primera-aplicacion-angular';
   mensaje = 'Hola desde Angular';
   mostrarResultado = false;
+  nombre = 'Jimmy Javier';
+  edad=15;
+  estaDeshabilitado = false;
+  imagenUrl = 'https://picsum.photos/id/237/200/300';
+  colorFavorito = 'blue';
+
+  constructor(){
+    setTimeout(() => {
+      this.colorFavorito = 'red';
+      this.estaDeshabilitado = true;
+      this.nombre = 'Nuevo Nombre';
+      this.edad = 25;
+    }, 3000);
+  }
 
   mostrarMensaje(){
     return this.mensaje.toUpperCase();
