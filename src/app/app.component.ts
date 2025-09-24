@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { Producto } from './producto/producto';
-import { Eventos } from './eventos/eventos';
+import { Formulario } from "./formulario/formulario";
 
 @Component({
   selector: 'app-root',
-  imports: [Eventos],  
+  imports: [Formulario],  
   template:`    
-    <app-eventos></app-eventos>
+    <app-formulario></app-formulario>
   `,  
   styles:[
     `
